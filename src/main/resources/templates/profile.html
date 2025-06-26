@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Profile - Bright Future Academy</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}"/>
+</head>
+<body>
+
+<!-- including header navigation section from header.html -->
+<div th:replace="~{header :: header}"></div>
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-3 text-white animation-fade-in-delay">Your Profile</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- profile block-->
+<section class="w3l-contact py-5" id="contact">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <h3 class="title-style">My Profile</h3>
+        </div>
+        <div class="row profile-block">
+            <div class="col-md-7 profile-center">
+                <ul>
+                    <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('profile.*')}" th:text="${error}" />
+                </ul>
+                <form th:action="@{/updateProfile}"  method="post" class="signin-form" th:object="${profile}">
+                    <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                        <h5 class="footer-title-29">Personal Details</h5>
+                    </div>
+                    <div class="input-grids">
+                        <label class="control-label" for="name">Name:</label>
+                        <input type="text" th:field="*{name}" id="name" class="profile-input" />
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="control-label" for="mobileNumber">Mobile Number:</label>
+                                <input type="text" th:field="*{mobileNumber}" id="mobileNumber"
+                                       class="profile-input" />
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="control-label" for="email">Email:</label>
+                                <input type="text" th:field="*{email}"  id="email"
+                                       class="profile-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                        <h5 class="footer-title-29">Address Details</h5>
+                    </div>
+                    <div class="input-grids">
+                        <label class="control-label" for="address1">Address Line 1:</label>
+                        <input type="text" th:field="*{address1}"  id="address1" class="profile-input" />
+                        <label for="address2">Address Line 2:</label>
+                        <input type="text" th:field="*{address2}"   id="address2" class="profile-input" />
+                        <label class="control-label" for="city">City:</label>
+                        <input type="text" th:field="*{city}"   id="city" class="profile-input" />
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="control-label" for="state">State:</label>
+                                <input type="text" th:field="*{state}"   id="state"
+                                       class="profile-input" />
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="control-label" for="zipCode">Zip Code:</label>
+                                <input type="text" th:field="*{zipCode}"   id="zipCode"
+                                       class="profile-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 login-center text-start">
+                        <button class="btn btn-style btn-style-3 text-left" >Update</button>
+                        <a th:href="@{/dashboard}" class="new-user text-right">
+                            <button class="btn btn-style btn-style-3 text-left" th:formaction="@{/dashboard}">BACK</button>
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- profile block-->
+
+
+<!-- Including footer section from footer.html -->
+<div th:replace="~{footer :: footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

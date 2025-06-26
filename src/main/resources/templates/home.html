@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bright Future Academy</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- including header navigation section from header.html -->
+<div th:replace="~{header :: header}"></div>
+
+<!-- Hero Section -->
+<header class="hero">
+    <div class="overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-md-6 text-start">
+                <h1 class="display-3 text-white mb-3 animation-fade-in-delay"
+                    th:text="'Halo, Welcome to ' + ${institutionName} + '!.' ">
+                </h1>
+                <p class="lead text-white animation-fade-in-delay">
+                    Empowering Minds, Inspiring Excellence
+                </p>
+                <a
+                        th:href="@{/programs}"
+                        class="btn btn-primary btn-lg mt-3 animation-fade-in-delay-2"
+                >Explore Programs</a
+                >
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Home</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Why Choose Us</h2>
+                <p class="section-subheading">
+                    Discover what makes our education special
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+                    <h3>Quality Education</h3>
+                    <p>
+                        Our curriculum is designed by experts to ensure comprehensive
+                        learning and skill development.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h3>Expert Faculty</h3>
+                    <p>
+                        Learn from highly qualified teachers who are passionate about
+                        education and student success.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                    <h3>Modern Facilities</h3>
+                    <p>
+                        State-of-the-art campus with technology-enabled classrooms and
+                        recreational spaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Preview Section -->
+<section class="programs-preview py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Our Programs</h2>
+                <p class="section-subheading">
+                    Diverse educational pathways for every student
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card program-card h-100">
+                    <img
+                            src="https://images.pexels.com/photos/5088179/pexels-photo-5088179.jpeg"
+                            class="card-img-top"
+                            alt="Elementary Education"
+                    />
+                    <div class="card-body">
+                        <h4 class="card-title">Elementary</h4>
+                        <p class="card-text">
+                            Building a strong foundation for lifelong learning with a
+                            focus on core skills and creativity.
+                        </p>
+                        <a
+                                th:href="@{/programs}"
+                                class="btn btn-outline-primary"
+                        >Learn More</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card program-card h-100">
+                    <img
+                            src="https://images.pexels.com/photos/8617773/pexels-photo-8617773.jpeg"
+                            class="card-img-top"
+                            alt="Middle School Education"
+                    />
+                    <div class="card-body">
+                        <h4 class="card-title">Middle School</h4>
+                        <p class="card-text">
+                            Guiding students through critical developmental years with
+                            engaging curriculum.
+                        </p>
+                        <a th:href="@{/programs}" class="btn btn-outline-primary"
+                        >Learn More</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card program-card h-100">
+                    <img
+                            src="https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg"
+                            class="card-img-top"
+                            alt="High School Education"
+                    />
+                    <div class="card-body">
+                        <h4 class="card-title">High School</h4>
+                        <p class="card-text">
+                            Preparing students for college and beyond with rigorous
+                            academics and career guidance.
+                        </p>
+                        <a th:href="@{/programs}" class="btn btn-outline-primary"
+                        >Learn More</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a th:href="@{/programs}" class="btn btn-primary btn-lg"
+            >View All Programs</a
+            >
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">What Parents Say</h2>
+                <p class="section-subheading">Hear from our community</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="testimonial-box">
+                    <p class="testimonial-text">
+                        "Bright Future Academy has transformed my child's learning
+                        experience. The teachers are caring and the curriculum is
+                        challenging yet engaging."
+                    </p>
+                    <div class="testimonial-author">
+                        <h5>Aniket Desai</h5>
+                        <p>Parent of 5th Grader</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="testimonial-box">
+                    <p class="testimonial-text">
+                        "We've seen remarkable growth in our son's academic performance
+                        and confidence since joining the academy. The personalized
+                        attention makes all the difference."
+                    </p>
+                    <div class="testimonial-author">
+                        <h5>Rubi Chaudhary</h5>
+                        <p>Parent of 10th Grader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News & Events Section -->
+<section class="news-events py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">News & Events</h2>
+                <p class="section-subheading">
+                    Stay updated with what's happening at our school
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card event-card h-100">
+                    <div class="card-body">
+                        <div class="event-date">NOV 15</div>
+                        <h4 class="card-title">Annual Science Fair</h4>
+                        <p class="card-text">
+                            Join us for a day of innovation and discovery as students
+                            showcase their scientific projects.
+                        </p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card event-card h-100">
+                    <div class="card-body">
+                        <div class="event-date">DEC 05</div>
+                        <h4 class="card-title">Winter Concert</h4>
+                        <p class="card-text">
+                            Experience the musical talents of our students at the annual
+                            winter performance.
+                        </p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card event-card h-100">
+                    <div class="card-body">
+                        <div class="event-date">JAN 10</div>
+                        <h4 class="card-title">Parent-Teacher Conference</h4>
+                        <p class="card-text">
+                            Schedule meetings with teachers to discuss your child's
+                            progress and development.
+                        </p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+                <h2 class="text-white mb-3">
+                    Ready to Join Our Academic Community?
+                </h2>
+                <p class="text-white mb-4">
+                    Enrollment is open for the upcoming academic year. Schedule a
+                    visit or apply today.
+                </p>
+                <a href="contact.html" class="btn btn-light btn-lg me-3"
+                >Contact Us</a
+                >
+                <a href="#" class="btn btn-outline-light btn-lg">Apply Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Including footer section from footer.html -->
+<div th:replace="~{footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

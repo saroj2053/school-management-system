@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Programs - Bright Future Academy</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<div th:replace="~{header :: header}"></div>
+
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4 text-white animation-fade-in-delay">
+                    Our Academic Programs
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+                <li class="breadcrumb-item active">Programs</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Programs Overview -->
+<section class="programs-overview py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">
+                    Educational Excellence at Every Level
+                </h2>
+                <p class="section-subheading">
+                    Our comprehensive academic programs are designed to foster
+                    intellectual growth, creativity, and character development
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="program-highlight">
+                    <h3>Our Educational Philosophy</h3>
+                    <p>
+                        At Bright Future Academy, we believe in a holistic approach to
+                        education that nurtures the intellectual, social, emotional, and
+                        physical development of each student. Our curriculum is designed
+                        to be both challenging and engaging, encouraging students to
+                        think critically, solve problems creatively, and develop a
+                        lifelong love of learning.
+                    </p>
+                    <p>
+                        Through personalized attention, innovative teaching methods, and
+                        a supportive community, we prepare students for success in
+                        college, career, and life.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="program-highlight">
+                    <h3>Curriculum Highlights</h3>
+                    <ul>
+                        <li>
+                            Rigorous academic standards aligned with national benchmarks
+                        </li>
+                        <li>
+                            STEAM-focused learning (Science, Technology, Engineering,
+                            Arts, Mathematics)
+                        </li>
+                        <li>
+                            Foreign language instruction beginning in elementary school
+                        </li>
+                        <li>
+                            Project-based learning that connects classroom concepts to
+                            real-world applications
+                        </li>
+                        <li>
+                            Character education integrated throughout the curriculum
+                        </li>
+                        <li>
+                            Advanced Placement (AP) and honors courses at the high school
+                            level
+                        </li>
+                        <li>Comprehensive college counseling and preparation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Elementary School -->
+<section id="elementary" class="program-section py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img
+                        src="https://images.pexels.com/photos/8535214/pexels-photo-8535214.jpeg"
+                        alt="Elementary School Students"
+                        class="img-fluid rounded"
+                />
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-heading">Elementary School (K-5)</h2>
+                <p class="lead">
+                    Building a strong foundation for lifelong learning
+                </p>
+                <p>
+                    Our elementary program nurtures curiosity and builds fundamental
+                    skills in a supportive, engaging environment. Students develop
+                    core academic abilities while exploring their interests through
+                    enrichment activities.
+                </p>
+                <div class="program-features">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-book"></i>
+                                <h5>Core Curriculum</h5>
+                                <p>
+                                    Literacy, mathematics, science, social studies, and
+                                    character education
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-music-note-beamed"></i>
+                                <h5>Specialty Classes</h5>
+                                <p>
+                                    Art, music, physical education, technology, and world
+                                    languages
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-person-check"></i>
+                                <h5>Personalized Learning</h5>
+                                <p>
+                                    Differentiated instruction to meet individual learning
+                                    needs
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-puzzle"></i>
+                                <h5>Hands-On Projects</h5>
+                                <p>
+                                    Interactive learning experiences that make concepts come
+                                    alive
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary mt-3">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Middle School -->
+<section id="middle" class="program-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h2 class="section-heading">Middle School (6-8)</h2>
+                <p class="lead">
+                    Guiding students through critical developmental years
+                </p>
+                <p>
+                    Our middle school program provides a supportive environment where
+                    students navigate the transition from childhood to adolescence. We
+                    focus on academic rigor while nurturing social and emotional
+                    growth, helping students discover their strengths and interests.
+                </p>
+                <div class="program-features">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-journal-text"></i>
+                                <h5>Advanced Academics</h5>
+                                <p>
+                                    Challenging coursework in all core subjects with
+                                    opportunities for acceleration
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-people"></i>
+                                <h5>Advisory Program</h5>
+                                <p>
+                                    Dedicated mentoring to support academic and personal
+                                    development
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-globe"></i>
+                                <h5>Elective Exploration</h5>
+                                <p>
+                                    Diverse elective options to explore interests and develop
+                                    talents
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-laptop"></i>
+                                <h5>Technology Integration</h5>
+                                <p>
+                                    Digital literacy and responsible technology use across the
+                                    curriculum
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary mt-3">Learn More</a>
+            </div>
+            <div class="col-lg-5 mb-4 mb-lg-0 order-lg-first order-last">
+                <img
+                        src="https://images.pexels.com/photos/8617773/pexels-photo-8617773.jpeg"
+                        alt="Middle School Students"
+                        class="img-fluid rounded"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- High School -->
+<section id="high" class="program-section py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img
+                        src="https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg"
+                        alt="High School Students"
+                        class="img-fluid rounded"
+                />
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-heading">High School (9-12)</h2>
+                <p class="lead">Preparing students for college and beyond</p>
+                <p>
+                    Our high school program combines rigorous academics with robust
+                    extracurricular opportunities to prepare students for success in
+                    college and careers. We emphasize critical thinking,
+                    communication, collaboration, and creativity while supporting
+                    students in discovering and pursuing their passions.
+                </p>
+                <div class="program-features">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-award"></i>
+                                <h5>Advanced Placement</h5>
+                                <p>Comprehensive AP program with 15+ course offerings</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-mortarboard"></i>
+                                <h5>College Counseling</h5>
+                                <p>
+                                    Individualized guidance for college selection and
+                                    application
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-briefcase"></i>
+                                <h5>Internship Program</h5>
+                                <p>
+                                    Real-world experience through partnerships with local
+                                    businesses
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-item">
+                                <i class="bi bi-graph-up"></i>
+                                <h5>Leadership Development</h5>
+                                <p>
+                                    Opportunities to build leadership skills through clubs and
+                                    activities
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary mt-3">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Extracurricular Activities -->
+<section id="extracurricular" class="program-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Extracurricular Activities</h2>
+                <p class="section-subheading">
+                    Developing well-rounded students through diverse opportunities
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card extracurricular-card h-100">
+                    <div class="card-body text-center">
+                        <div class="activity-icon">
+                            <i class="bi bi-dribbble"></i>
+                        </div>
+                        <h4>Athletics</h4>
+                        <p>
+                            Competitive sports including basketball, soccer, swimming,
+                            tennis, track and field, and volleyball.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card extracurricular-card h-100">
+                    <div class="card-body text-center">
+                        <div class="activity-icon">
+                            <i class="bi bi-music-note"></i>
+                        </div>
+                        <h4>Arts</h4>
+                        <p>
+                            Opportunities in visual arts, music, theater, dance, and
+                            digital media production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card extracurricular-card h-100">
+                    <div class="card-body text-center">
+                        <div class="activity-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h4>STEM Clubs</h4>
+                        <p>
+                            Robotics, coding, science olympiad, math club, and engineering
+                            challenges.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card extracurricular-card h-100">
+                    <div class="card-body text-center">
+                        <div class="activity-icon">
+                            <i class="bi bi-globe2"></i>
+                        </div>
+                        <h4>Community Service</h4>
+                        <p>
+                            Local and global service initiatives that develop empathy and
+                            leadership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-outline-primary">View All Activities</a>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty -->
+<section class="faculty py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Our Faculty</h2>
+                <p class="section-subheading">
+                    Experienced educators dedicated to student success
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="faculty-stats">
+                    <div class="row text-center">
+                        <div class="col-6 mb-4">
+                            <div class="stat-box">
+                                <h3>95%</h3>
+                                <p>Hold Advanced Degrees</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box">
+                                <h3>12:1</h3>
+                                <p>Student-Teacher Ratio</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box">
+                                <h3>15+</h3>
+                                <p>Average Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box">
+                                <h3>100%</h3>
+                                <p>Ongoing Professional Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="faculty-quote">
+                    <div class="quote-icon">
+                        <i class="bi bi-quote"></i>
+                    </div>
+                    <blockquote>
+                        Our teachers are not just educators but mentors who guide
+                        students to discover their potential and develop the skills,
+                        knowledge, and character they need to thrive in a rapidly
+                        changing world.
+                    </blockquote>
+                    <div class="quote-author">
+                        <p>
+                            <strong>Dr. Rahul Shrivastav</strong><br />Principal, Bright
+                            Future Academy
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Calendar -->
+<section class="calendar py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Academic Calendar</h2>
+                <p class="section-subheading">
+                    Key dates for the 2025-2026 academic year
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>First Day of School</td>
+                            <td>August 25, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Fall Break</td>
+                            <td>October 13-17, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Thanksgiving Break</td>
+                            <td>November 24-28, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Winter Break</td>
+                            <td>December 22, 2025 - January 2, 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Spring Break</td>
+                            <td>March 16-20, 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Last Day of School</td>
+                            <td>June 10, 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Graduation Ceremony</td>
+                            <td>June 12, 2026</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary"
+                    >Download Complete Calendar</a
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+                <p class="section-subheading">
+                    Answers to common questions about our programs
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="programFaq">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faqOne">
+                            <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapseOne"
+                                    aria-expanded="true"
+                                    aria-controls="faqCollapseOne"
+                            >
+                                What is your approach to teaching and learning?
+                            </button>
+                        </h3>
+                        <div
+                                id="faqCollapseOne"
+                                class="accordion-collapse collapse show"
+                                aria-labelledby="faqOne"
+                                data-bs-parent="#programFaq"
+                        >
+                            <div class="accordion-body">
+                                Our approach combines traditional academic rigor with
+                                innovative teaching methods. We believe in personalized
+                                learning that addresses the unique needs, interests, and
+                                learning styles of each student. Our curriculum incorporates
+                                project-based learning, STEAM integration, and real-world
+                                applications to make learning meaningful and engaging.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faqTwo">
+                            <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapseTwo"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapseTwo"
+                            >
+                                How do you support students with different learning needs?
+                            </button>
+                        </h3>
+                        <div
+                                id="faqCollapseTwo"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="faqTwo"
+                                data-bs-parent="#programFaq"
+                        >
+                            <div class="accordion-body">
+                                We offer a comprehensive support system for students with
+                                diverse learning needs. Our Learning Support Department
+                                provides individualized assistance, accommodations, and
+                                modifications as needed. We also offer enrichment
+                                opportunities for advanced learners and maintain small class
+                                sizes to ensure each student receives the attention they
+                                deserve.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faqThree">
+                            <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapseThree"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapseThree"
+                            >
+                                What technology resources are available to students?
+                            </button>
+                        </h3>
+                        <div
+                                id="faqCollapseThree"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="faqThree"
+                                data-bs-parent="#programFaq"
+                        >
+                            <div class="accordion-body">
+                                Our campus is equipped with state-of-the-art technology,
+                                including smart classrooms, computer labs, and makerspaces.
+                                We implement a 1:1 device program for grades 6-12, providing
+                                each student with a laptop or tablet. Our technology
+                                curriculum teaches digital literacy, coding, and responsible
+                                digital citizenship across all grade levels.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faqFour">
+                            <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faqCollapseFour"
+                                    aria-expanded="false"
+                                    aria-controls="faqCollapseFour"
+                            >
+                                How do you prepare students for college and careers?
+                            </button>
+                        </h3>
+                        <div
+                                id="faqCollapseFour"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="faqFour"
+                                data-bs-parent="#programFaq"
+                        >
+                            <div class="accordion-body">
+                                Our comprehensive college and career readiness program
+                                begins in middle school and intensifies through high school.
+                                Students receive personalized college counseling,
+                                standardized test preparation, and guidance through the
+                                application process. We also offer career exploration,
+                                internships, and skill-building opportunities that prepare
+                                students for future success regardless of their chosen path.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="~{footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

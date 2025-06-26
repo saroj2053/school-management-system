@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holidays - Bright Future Academy</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+</head>
+<body>
+
+<div th:replace="~{header :: header}"></div>
+
+<header class="page-header">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4 text-white animation-fade-in-delay">
+                    Holidays
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+                <li class="breadcrumb-item active">Holidays</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="w3l-timeline-1 py-5">
+    <div class="container py-lg-5 py-4">
+        <div class="title-heading-w3 text-center mb-sm-5 mb-4">
+            <h5 class="title-small">Bright Future Academy</h5>
+            <h3 class="title-style">Awesome Holidays</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" th:if="${festival} == true">
+                <h5 class="sub-title-timeline"><i class="bi bi-asterisk"></i> Festival Holidays</h5>
+                <div class="timeline">
+                    <div th:each="holiday : ${FESTIVAL}" class="column">
+                        <div class="title">
+                            <h2 th:text="${holiday.reason}"></h2>
+                        </div>
+                        <div class="description">
+                            <h6 th:text="${holiday.day}" class="bi bi-calendar-event"><i class="bi bi-calendar-event"></i></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mt-lg-0 mt-4" th:if="${federal} == true">
+                <h5 class="sub-title-timeline"><i class="bi bi-flag-fill"></i> Federal Holidays</h5>
+                <div class="timeline">
+                    <div th:each="holiday : ${FEDERAL}" class="column">
+                        <div class="title">
+                            <h2 th:text="${holiday.reason}"></h2>
+                        </div>
+                        <div class="description">
+                            <h6 th:text="${holiday.day}" class="bi bi-calendar-event"><i class="bi bi-calendar-event"></i></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div th:replace="~{footer :: footer}"></div>
+
+</body>
+</html>

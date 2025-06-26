@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Bright Future Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<div th:replace="~{header :: header}"></div>
+
+
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4 text-white animation-fade-in-delay">
+                    Dashboard
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+</div>>
+
+
+<!-- Dashboard Content -->
+<div class="container-fluid dashboard-container">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-xl-2 col-lg-3 sidebar">
+            <div class="user-profile text-center mb-4">
+                <img th:src="${'https://ui-avatars.com/api/?name=' + username}" alt="User" class="user-avatar-lg rounded-circle mb-3">
+                <h5 th:text="${username}">Alex Johnson</h5>
+            </div>
+            <ul class="nav flex-column sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/dashboard}">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#courses">
+                        <i class="bi bi-book"></i> My Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#assignments">
+                        <i class="bi bi-clipboard-check"></i> Assignments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#grades">
+                        <i class="bi bi-bar-chart"></i> Grades
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#calendar">
+                        <i class="bi bi-calendar3"></i> Calendar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#messages">
+                        <i class="bi bi-chat-left-text"></i> Messages
+                        <span class="badge bg-primary rounded-pill ms-1">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#resources">
+                        <i class="bi bi-files"></i> Resources
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#settings">
+                        <i class="bi bi-gear"></i> Settings
+                    </a>
+                </li>
+            </ul>
+            <div class="mt-4 text-center">
+                <a th:href="@{/logout}" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-box-arrow-left"></i> Sign Out
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-xl-10 col-lg-9 main-content">
+            <div class="welcome-section mb-4">
+                <h1 th:text="${'Welcome back - ' + username}" class="mb-2">Welcome back, Alex!</h1>
+                <p class="strong" th:text="${'You are logged in as - ' + roles}"></p>
+                <p class="" th:if="${!#strings.isEmpty(enrolledClass)}" th:text="${'Your assigned class is - [' + enrolledClass +']'}"></p>
+            </div>
+
+            <!-- Status Cards -->
+            <div class="row status-cards mb-4">
+                <div class="col-xl-3 col-md-6 mb-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="card status-card h-100" th:href="@{/displayMessages/page/1?sortField=name&sortDir=desc}">
+                        <div class="card-body">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-auto">
+                                    <div class="status-icon bg-primary">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h2 class="status-value">Messages</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <a class="card status-card h-100" th:href="@{/displayProfile}">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="status-icon bg-success">
+                                        <i class="bi bi-person-vcard"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h2 class="status-value">Profile</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="card status-card h-100" th:href="@{/admin/displayClasses}">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="status-icon bg-warning">
+                                        <i class="bi bi-clipboard-data"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                    <h2 class="status-value">Classes</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="card status-card h-100" th:href="@{/admin/displayCourses}">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="status-icon bg-info">
+                                        <i class="bi bi-trophy"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                    <h2 class="status-value">Courses</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4" sec:authorize="hasRole('ROLE_STUDENT')">
+                    <a class="card status-card h-100" th:href="@{/student/displayCourses}">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="status-icon bg-info">
+                                        <i class="bi bi-trophy"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                    <h2 class="status-value">Courses</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Upcoming & Announcements Row -->
+            <div class="row mb-4">
+                <!-- Upcoming Assignments -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Upcoming Assignments</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Math: Linear Equations Problem Set</h6>
+                                        <small class="text-danger">Due Tomorrow</small>
+                                    </div>
+                                    <p class="mb-1">Complete problems 1-15 on page 87</p>
+                                    <small class="text-muted">Mr. Richards • Algebra II</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">English: Literary Analysis Essay</h6>
+                                        <small class="text-warning">Due in 3 days</small>
+                                    </div>
+                                    <p class="mb-1">5-page analysis of themes in "To Kill a Mockingbird"</p>
+                                    <small class="text-muted">Ms. Parker • English Literature</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Science: Lab Report</h6>
+                                        <small class="text-muted">Due in 5 days</small>
+                                    </div>
+                                    <p class="mb-1">Complete report on photosynthesis experiment</p>
+                                    <small class="text-muted">Dr. Lewis • Biology</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">History: Research Presentation</h6>
+                                        <small class="text-muted">Due in 1 week</small>
+                                    </div>
+                                    <p class="mb-1">10-minute presentation on a historical figure</p>
+                                    <small class="text-muted">Mr. Thompson • World History</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Announcements</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Science Fair Registration Open</h6>
+                                        <small class="text-muted">Today</small>
+                                    </div>
+                                    <p class="mb-1">Registration for the Annual Science Fair is now open. Submit your project proposals by October 15th.</p>
+                                    <small class="text-muted">Dr. Morgan • Science Department</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Basketball Tryouts</h6>
+                                        <small class="text-muted">Yesterday</small>
+                                    </div>
+                                    <p class="mb-1">Basketball tryouts will be held next Monday after school in the gymnasium. All interested students should sign up with Coach Davis.</p>
+                                    <small class="text-muted">Coach Davis • Athletics Department</small>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Parent-Teacher Conferences</h6>
+                                        <small class="text-muted">2 days ago</small>
+                                    </div>
+                                    <p class="mb-1">Fall parent-teacher conferences will be held October 5-6. Online scheduling is now available.</p>
+                                    <small class="text-muted">Administration Office</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timetable -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Weekly Schedule</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered timetable">
+                                    <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>8:00 - 9:30</td>
+                                        <td class="bg-soft-primary">Algebra II</td>
+                                        <td class="bg-soft-success">Biology</td>
+                                        <td class="bg-soft-primary">Algebra II</td>
+                                        <td class="bg-soft-success">Biology</td>
+                                        <td class="bg-soft-primary">Algebra II</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9:45 - 11:15</td>
+                                        <td class="bg-soft-warning">World History</td>
+                                        <td class="bg-soft-info">English Literature</td>
+                                        <td class="bg-soft-warning">World History</td>
+                                        <td class="bg-soft-info">English Literature</td>
+                                        <td class="bg-soft-warning">World History</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:15 - 12:00</td>
+                                        <td colspan="5" class="text-center">Lunch Break</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12:00 - 1:30</td>
+                                        <td class="bg-soft-info">English Literature</td>
+                                        <td class="bg-soft-danger">Spanish II</td>
+                                        <td class="bg-soft-info">English Literature</td>
+                                        <td class="bg-soft-danger">Spanish II</td>
+                                        <td class="bg-soft-secondary">Study Hall</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1:45 - 3:15</td>
+                                        <td class="bg-soft-success">Biology Lab</td>
+                                        <td class="bg-soft-dark">Physical Education</td>
+                                        <td class="bg-soft-warning">Computer Science</td>
+                                        <td class="bg-soft-dark">Physical Education</td>
+                                        <td class="bg-soft-warning">Computer Science</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3:30 - 5:00</td>
+                                        <td class="bg-soft-secondary">Basketball Practice</td>
+                                        <td class="bg-soft-secondary">Debate Club</td>
+                                        <td class="bg-soft-secondary">Basketball Practice</td>
+                                        <td class="bg-soft-secondary">Science Club</td>
+                                        <td class="bg-soft-secondary">Basketball Practice</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grades Overview -->
+            <div class="row mb-4">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Current Grades</h5>
+                            <button class="btn btn-sm btn-outline-primary">View Detailed Report</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Course</th>
+                                        <th>Teacher</th>
+                                        <th>Current Grade</th>
+                                        <th>Trend</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Algebra II</td>
+                                        <td>Mr. Richards</td>
+                                        <td><span class="grade-badge bg-success">A</span> 92%</td>
+                                        <td><i class="bi bi-arrow-up text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>English Literature</td>
+                                        <td>Ms. Parker</td>
+                                        <td><span class="grade-badge bg-success">A-</span> 90%</td>
+                                        <td><i class="bi bi-arrow-up text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Biology</td>
+                                        <td>Dr. Lewis</td>
+                                        <td><span class="grade-badge bg-success">B+</span> 88%</td>
+                                        <td><i class="bi bi-dash text-muted"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>World History</td>
+                                        <td>Mr. Thompson</td>
+                                        <td><span class="grade-badge bg-success">A</span> 95%</td>
+                                        <td><i class="bi bi-arrow-up text-success"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spanish II</td>
+                                        <td>Ms. Rodriguez</td>
+                                        <td><span class="grade-badge bg-warning">C+</span> 78%</td>
+                                        <td><i class="bi bi-arrow-down text-danger"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Computer Science</td>
+                                        <td>Mr. Zhang</td>
+                                        <td><span class="grade-badge bg-success">A-</span> 91%</td>
+                                        <td><i class="bi bi-dash text-muted"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Physical Education</td>
+                                        <td>Coach Davis</td>
+                                        <td><span class="grade-badge bg-success">A</span> 95%</td>
+                                        <td><i class="bi bi-dash text-muted"></i></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Grade Distribution</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <!-- For simplicity, using a static image instead of a real chart -->
+                            <div class="grade-chart mb-3">
+                                <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg" class="img-fluid rounded" alt="Grade Chart">
+                            </div>
+                            <div class="grade-stats">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <h5>3.7</h5>
+                                        <p class="text-muted">Current GPA</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5>3.5</h5>
+                                        <p class="text-muted">Cumulative GPA</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5>4.0</h5>
+                                        <p class="text-muted">Target GPA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Recent Activity</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View All Activity</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div>
+                                            <h6 class="mb-1">Algebra II Quiz Graded</h6>
+                                            <p class="mb-1">You received a 92% on your recent quiz. Great job!</p>
+                                        </div>
+                                        <small class="text-muted">Today, 10:15 AM</small>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div>
+                                            <h6 class="mb-1">English Literature Assignment Submitted</h6>
+                                            <p class="mb-1">Your essay "Analysis of Macbeth" was submitted successfully.</p>
+                                        </div>
+                                        <small class="text-muted">Yesterday, 3:45 PM</small>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div>
+                                            <h6 class="mb-1">New Biology Assignment Posted</h6>
+                                            <p class="mb-1">Dr. Lewis has posted a new lab report assignment due next week.</p>
+                                        </div>
+                                        <small class="text-muted">Yesterday, 11:20 AM</small>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div>
+                                            <h6 class="mb-1">Comment on Spanish Presentation</h6>
+                                            <p class="mb-1">Ms. Rodriguez: "Well done on your oral presentation. Your pronunciation has improved significantly."</p>
+                                        </div>
+                                        <small class="text-muted">2 days ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
